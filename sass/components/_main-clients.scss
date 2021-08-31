@@ -1,0 +1,42 @@
+/* section CLIENTS */
+
+.clients-list {
+  display: flex;
+  justify-content: left;
+  margin-right: calc(-1 * var(--projects-item-space));
+}
+
+.client {
+  flex-basis: calc(100% / 6 - var(--projects-item-space));
+  margin-right: var(--projects-item-space);
+}
+
+.client__link {
+  display: block;
+  width: 170px;
+  height: 92px;
+  padding: 16px 32px;
+
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--fill-icon-inactive);
+  border-radius: 4px;
+
+  @include transition-generic("border-color");
+
+  &:hover,
+  &:focus {
+    border-color: var(--accent-color);
+  }
+}
+
+.client__logo {
+  fill: var(--fill-icon-inactive);
+
+  @include transition-generic("fill");
+
+  .client__link:hover > &,
+  .client__link:focus > & {
+    fill: var(--accent-color);
+  }
+}

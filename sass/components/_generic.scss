@@ -1,0 +1,83 @@
+body {
+  position: relative;
+
+  background-color: var(--bkg-color-primary);
+  color: var(--text-color-primary);
+
+  font-family: var(--font-default), sans-serif;
+  font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1200px;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  justify-content: space-between;
+  align-items: center;
+  &--flex-col {
+    //flex into column
+    flex-direction: column;
+  }
+}
+
+.container-list {
+  display: flex;
+  max-width: 1200px;
+  flex-wrap: wrap;
+
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vis-hide {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}
+
+.inline {
+  display: inline;
+}
+
+@mixin transition-generic($anim-property) {
+  //what to animate and time (default included)
+  transition-property: #{$anim-property};
+  transition-timing-function: var(--anim-curve);
+  transition-duration: var(--anim-time);
+}
+
+/* new default for all links */
+.link {
+  text-decoration: none;
+  @include transition-generic("color");
+
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
+  }
+}

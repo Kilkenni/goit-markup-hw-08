@@ -1,0 +1,36 @@
+/* section WE DO  */
+
+.wedo-item {
+  position: relative;
+
+  &:not(:last-child) {
+    margin-right: 30px;
+  }
+}
+
+.wedo-item__image {
+  display: block;
+}
+
+.wedo-item__desc {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+
+  background-color: var(--bkg-color-wedo-overlay);
+  width: 370px;
+  height: 70px;
+  padding-top: 27px;
+}
+
+.wedo-item__label {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  vertical-align: middle;
+  letter-spacing: 0.03em;
+  text-transform: uppercase; // capitalize
+
+  color: var(--bkg-color-primary);
+}

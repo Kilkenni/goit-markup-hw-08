@@ -1,0 +1,25 @@
+/* section GENERIC */
+
+.section {
+  padding-top: 95px;
+
+  &--bottom-pad {
+    padding-bottom: 94px;
+  }
+
+  &--bkg-gray {
+    background-color: var(--bkg-color-section);
+  }
+}
+
+.section__header {
+  /* font-weight: bold; */
+  font-size: 36px;
+  line-height: 1.17;
+  letter-spacing: 0.03em;
+
+  margin-bottom: 50px;
+  text-align: center;
+
+  color: var(--text-color-secondary);
+}

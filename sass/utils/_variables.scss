@@ -1,0 +1,56 @@
+@function hexToRGB($hex) {
+  @return "#{red($hex)}, #{green($hex)}, #{blue($hex)}";
+}
+
+:root {
+  /* Palette */
+  --text-color-primary: #757575;
+  --text-color-secondary: #212121;
+  --text-color-other: #000000;
+  --text-color-other-inv: #ffffff;
+  --text-color-misc: rgba(255, 255, 255, 0.6);
+
+  --bkg-color-primary: #ffffff;
+  --bkg-color-secondary: #2f303a;
+  --bkg-color-section: #f5f4fa; /* also inactive accent */
+  --bkg-color-hero: #c4c4c4;
+  --bkg-color-hero-overlay: rgba(47, 48, 58, 0.4);
+  --bkg-color-wedo-overlay: rgba(47, 48, 58, 0.8);
+  --bkg-color-social: rgba(255, 255, 255, 0.1);
+  --bkg-color-backdrop: rgba(0, 0, 0, 0.2);
+  --border: #ececec;
+  --border-project: #eeeeee;
+  --border-btn-close: rgba(0, 0, 0, 0.1);
+  --border-input-call: rgba(33, 33, 33, 0.2);
+  --border-input-subscribe: rgba(255, 255, 255, 0.3);
+  --bkg-color-project-overlay: rgba(33, 150, 243, 0.9);
+
+  --fill-icon-inactive: #afb1b8;
+
+  $shadow-color: #000000;
+  --shadow-color: #{$shadow-color}; //for reference only
+  --shadow-color-rgb: #{hexToRGB($shadow-color)}; //change this to taste the shadow rainbow!
+
+  --accent-color: #2196f3;
+  --accent-hover: #188ce8;
+
+  /* Variables */
+  --projects-item-space: 30px;
+  --anim-curve: cubic-bezier(0.4, 0, 0.2, 1);
+  --anim-time: 250ms;
+
+  --font-logo: "Raleway";
+  --font-default: "Roboto";
+}
+
+/* Fonts */
+// @import url("hhttps://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@400;500;700;900&display=swap"); /* testing importing fonts via CSS - works! */
+
+/* testing importing via @font-face - doesn't work. Try importing local fonts later */
+
+// @font-face {
+//   font-family: var(--font-logo), sans-serif;
+//   font-style: normal;
+//   src: local(var(--font-logo)),
+//     url("https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap");
+// }

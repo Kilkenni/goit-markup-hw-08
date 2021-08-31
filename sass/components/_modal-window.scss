@@ -1,0 +1,225 @@
+/* MODAL WINDOW */
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+
+  background-color: var(--bkg-color-backdrop);
+
+  @include transition-generic("opacity");
+
+  // transition-property: opacity;
+  // transition-timing-function: var(--anim-curve);
+  // transition-duration: var(--anim-time);
+}
+
+.modal-window {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1, 1);
+
+  width: 528px;
+  /* height: 581px; is now adjusted automatically, should be 581px by default */
+  padding: 40px;
+
+  border-radius: 4px;
+  background-color: var(--bkg-color-primary);
+
+  box-shadow: 0px 1px 3px rgba(var(--shadow-color-rgb), 0.12),
+    0px 1px 1px rgba(var(--shadow-color-rgb), 0.14),
+    0px 2px 1px var(--bkg-color-backdrop);
+
+  transition-property: opacity, transform;
+  transition-timing-function: var(--anim-curve);
+  transition-duration: calc(var(--anim-time) * 2);
+  transition-delay: var(--anim-time);
+
+  .is-hidden & {
+    transform: translate(-50%, -50%) scale(1, 0.05);
+  }
+}
+
+.btn--close-modal {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  width: 30px;
+  height: 30px;
+  background-color: var(--bkg-color-primary);
+  border-style: solid;
+  border-radius: 50%;
+  border-width: 1px;
+  border-color: var(--border-btn-close);
+  padding: 0;
+
+  &:focus,
+  &:hover {
+    background-color: var(--bkg-color-primary);
+  } /* overriding default button color */
+}
+
+.btn--close-modal__icon {
+  fill: var(--text-color-other);
+  .btn--close-modal:hover > &,
+  .btn--close-modal:focus > & {
+    fill: var(--accent-color);
+  }
+}
+
+.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition-delay: calc(var(--anim-time) * 2);
+}
+
+.modal-window__header {
+  color: var(--text-color-secondary);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.15;
+  text-align: center;
+  letter-spacing: 0.03em;
+
+  margin-bottom: 12px;
+}
+
+.modal-form {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.modal-form__element {
+  display: block;
+  position: relative;
+
+  &:not(:nth-last-of-type(2)) {
+    margin-bottom: 10px;
+  }
+
+  &:nth-last-of-type(2) {
+    margin-bottom: 20px;
+  }
+}
+
+.modal-form__label {
+  display: block;
+  margin-bottom: 4px;
+
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.167;
+  letter-spacing: 0.01em;
+}
+
+.modal-form__icon {
+  position: absolute;
+  bottom: 11px;
+  left: 12px;
+
+  fill: var(--text-color-secondary);
+}
+
+.modal-form__input,
+.modal-form__comment {
+  display: block;
+  width: 100%;
+
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 42px;
+  padding-right: 16px;
+
+  color: var(--text-color-secondary);
+  font-size: 16px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--border-input-call);
+  border-radius: 4px;
+
+  @include transition-generic("border-color");
+
+  &:hover,
+  &:focus {
+    border-color: var(--accent-color);
+  }
+}
+
+.modal-form__input {
+  height: 40px;
+}
+
+.modal-form__comment {
+  resize: none;
+  padding-left: 16px;
+  height: 120px;
+
+  &::placeholder {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.142;
+    letter-spacing: 0.01em;
+    color: rgba(117, 117, 117, 0.5);
+  }
+}
+
+.modal-form__icon {
+  transition-property: fill;
+  transition-timing-function: var(--anim-curve);
+  transition-duration: var(--anim-time);
+
+  .modal-form__input:hover + &,
+  .modal-form__input:focus-within + & {
+    fill: var(--accent-color);
+  }
+}
+
+.modal-form__terms {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  margin-left: 12px;
+  margin-right: 12px;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+}
+
+.modal-form__chk-accept {
+  fill: var(--text-color-secondary);
+
+  @include transition-generic("opacity");
+
+  .modal-form__chk-acc-real:checked ~ & {
+    opacity: 0;
+  }
+
+  &--checked {
+    position: absolute;
+    opacity: 0;
+    fill: var(--accent-color);
+
+    @include transition-generic("opacity");
+
+    .modal-form__chk-acc-real:checked ~ & {
+      opacity: 1;
+    }
+  }
+}
+
+.btn--submit-modal {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

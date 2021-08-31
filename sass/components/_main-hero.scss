@@ -1,0 +1,35 @@
+/* section HERO */
+.section--hero {
+  background-color: var(--bkg-color-hero);
+  background-image: linear-gradient(
+      to right,
+      var(--bkg-color-hero-overlay) 100%,
+      var(--bkg-color-hero-overlay)
+    ),
+    url("../images/decoration/hero-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  padding-top: 200px;
+  padding-bottom: 200px;
+}
+
+.section--hero__header {
+  font-weight: 900;
+  font-size: 44px;
+  line-height: 1.36;
+  letter-spacing: 0.06em;
+
+  color: var(--text-color-other-inv);
+  text-transform: uppercase;
+  text-align: center;
+
+  margin-bottom: 30px;
+}
+
+.btn--hero-style {
+  padding: 10px 32px;
+  min-width: 200px;
+  min-height: 50px;
+
+  box-shadow: 0px 4px 4px rgba(var(--shadow-color-rgb), 0.15);
+}
