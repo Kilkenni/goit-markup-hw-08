@@ -1,10 +1,26 @@
 /* page PORTFOLIO */
 
 .filters-list {
-  margin-bottom: 15px; /*not padding-bottom because we don't want empty space to be included in the button and be clickable*/
+  //margin-bottom: 15px; /*not padding-bottom because we don't want empty space to be included in the button and be clickable*/
+
+  //row-gap: 15px; //A good alternative attempt but not supported prior to 2020
+
+  margin-bottom: -15px;
+
+  &__item {
+    margin-bottom: 15px;
+  }
 
   &__item:not(:last-child) {
     margin-right: 8px;
+  }
+
+  // @media screen and (max-width: calc(#{$tablet} - 1px)) {
+  //   justify-content: flex-start;
+  // }
+
+  @media screen and (min-width: #{$tablet}) and (max-width: calc(#{$desktop} - 1px)) {
+    justify-content: center;
   }
 }
 
@@ -38,20 +54,52 @@
 /* projects cards */
 
 .portfolio-projects {
-  justify-content: left;
-  margin-top: 35px;
+  min-width: $mobile;
+  margin-top: 40px;
   margin-bottom: calc(-1 * var(--projects-item-space));
-  margin-right: calc(-1 * var(--projects-item-space));
 
   &__item {
-    flex-basis: calc(100% / 3 - var(--projects-item-space));
-    margin-right: var(--projects-item-space);
     margin-bottom: var(--projects-item-space);
+  }
+
+  @media screen and (max-width: calc(#{$tablet} - 1px)) {
+    &__item {
+      @include centered-block;
+    }
+  }
+
+  @media screen and (min-width: #{$tablet}) {
+    margin-right: calc(-1 * var(--projects-item-space));
+    justify-content: left;
+    align-items: flex-start;
+    &__item {
+      margin-right: var(--projects-item-space);
+    }
+  }
+
+  @media screen and (min-width: #{$tablet}) and (max-width: calc(#{$desktop} - 1px)) {
+    margin-top: 30px;
+    align-items: stretch;
+
+    &__item {
+      flex-basis: calc(100% / 2 - var(--projects-item-space));
+    }
+  }
+
+  @media screen and (min-width: #{$desktop}) {
+    margin-top: 50px;
+    &__item {
+      flex-basis: calc(100% / 3 - var(--projects-item-space));
+    }
   }
 }
 
 .project {
   @include transition-generic("box-shadow");
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 
   &:hover,
   &:focus {
@@ -103,6 +151,8 @@
 }
 
 .project__desc {
+  flex-grow: 1;
+
   padding-top: 20px;
   padding-bottom: 20px;
   padding: 20px 24px;

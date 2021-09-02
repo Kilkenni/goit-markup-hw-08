@@ -6,6 +6,10 @@
   &__item:not(:last-child) {
     margin-right: 10px;
   }
+
+  @media screen and (max-width: calc(#{$desktop} - 1px)) {
+    @include centered-text;
+  }
 }
 
 .social-list__link {

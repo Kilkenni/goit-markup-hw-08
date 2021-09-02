@@ -1,0 +1,9 @@
+@mixin centered-text {
+  text-align: center;
+  justify-content: center;
+}
+
+@mixin centered-block {
+  margin-left: auto;
+  margin-right: auto;
+}

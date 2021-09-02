@@ -28,28 +28,48 @@ p {
 }
 
 .container {
-  display: flex;
   margin-left: auto;
   margin-right: auto;
-  width: 1200px;
   padding-left: 15px;
   padding-right: 15px;
+  min-width: $mobile;
 
-  justify-content: space-between;
-  align-items: center;
-  &--flex-col {
-    //flex into column
-    flex-direction: column;
+  /* @media screen and (min-width: #{$tablet}) {
+  }*/
+
+  @media screen and (min-width: #{$tablet}) {
+    max-width: $tablet;
+  }
+
+  @media screen and (min-width: #{$desktop}) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    max-width: $desktop;
+
+    &--flex-col {
+      //flex into column
+      flex-direction: column;
+    }
   }
 }
 
 .container-list {
-  display: flex;
-  max-width: 1200px;
-  flex-wrap: wrap;
+  max-width: $desktop;
 
-  justify-content: space-between;
-  align-items: center;
+  @media screen and (min-width: #{$tablet}) {
+    display: flex;
+    //max-width: $tablet;
+    flex-wrap: wrap;
+
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @media screen and (min-width: #{$desktop}) {
+    max-width: $desktop;
+  }
 }
 
 .vis-hide {
@@ -62,6 +82,10 @@ p {
 
 .inline {
   display: inline;
+}
+
+.inline-block {
+  display: inline-block;
 }
 
 @mixin transition-generic($anim-property) {

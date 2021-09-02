@@ -187,11 +187,11 @@
         </div>
       </section>
 
-      <section class="section">
+      <section class="section section--bottom-pad-nodesk">
         <!-- traits of the corp-->
         <div class="container container--flex-col">
           <h2 class="section__header vis-hide">Особенности компании</h2>
-          <ul class="traits-list container-list">
+          <ul class="container-list container-list--traits">
             <li class="trait">
               <div class="trait__icon-container">
                 <svg class="trait__icon" width="70" height="70">
@@ -255,7 +255,7 @@
         </div>
       </section>
 
-      <section class="section section--bottom-pad">
+      <section class="section section--bottom-pad section--wedo">
         <div class="container container--flex-col">
           <h2 class="section__header">Чем мы занимаемся</h2>
 
@@ -303,8 +303,8 @@
         <div class="container container--flex-col">
           <h2 class="section__header">Наша команда</h2>
 
-          <ul class="container-list">
-            <li class="team-member inline">
+          <ul class="container-list container-list--team">
+            <li class="team-member" style="text-align: center;"> <!-- aligning not really necessary, merely testing if it works with an undersized image-->
               <img
                 src="./images/team/demyanenko.jpg"
                 alt="Фото Игоря Демьяненко"
@@ -358,7 +358,7 @@
               </div>
             </li>
 
-            <li class="team-member inline">
+            <li class="team-member">
               <img
                 src="./images/team/repina.jpg"
                 alt="Фото Ольги Репиной"
@@ -412,7 +412,7 @@
               </div>
             </li>
 
-            <li class="team-member inline">
+            <li class="team-member">
               <img
                 src="./images/team/tarasov.jpg"
                 alt="Фото Николая Тарасова"
@@ -466,7 +466,7 @@
               </div>
             </li>
 
-            <li class="team-member inline">
+            <li class="team-member">
               <img
                 src="./images/team/ermakov.jpg"
                 alt="Фото Михаила Ермакова"
@@ -582,94 +582,71 @@
 
     <footer class="footer">
       <div class="container container--footer">
-        <div class="footer-block--corp">
+        <div class="footer-block footer-block--corp">
           <p class="logo logo--footer">
-            <span class="logo__left logo--footer__left">Web</span
-            ><span class="logo__right logo--footer__right">Studio</span>
+            <span class="logo__left logo--footer__left">Web</span><span
+              class="logo__right logo--footer__right">Studio</span>
           </p>
-
+    
           <address>
             <ul class="footer-contacts">
               <li class="footer-contacts__item">
                 <p class="addr">г. Киев, пр-т Леси Украинки, 26</p>
               </li>
-
+    
               <li class="footer-contacts__item">
-                <a
-                  class="link link--footer-contacts"
-                  href="mailto:info@example.com"
-                  >info@example.com</a
-                >
+                <a class="link link--footer-contacts" href="mailto:info@example.com">info@example.com</a>
               </li>
-
+    
               <li class="footer-contacts__item">
-                <a
-                  class="link link--footer-contacts"
-                  href="tel:+38-099-111-11-11"
-                  >+38 099 111 11 11</a
-                >
+                <a class="link link--footer-contacts" href="tel:+38-099-111-11-11">+38 099 111 11 11</a>
               </li>
             </ul>
           </address>
         </div>
-
+    
         <div class="footer-block footer-block--social">
           <p class="footer-block__label">Присоединяйтесь</p>
           <ul class="social-list">
             <li class="social-list__item">
               <a class="social-list__link social-list__link--footer" href="">
                 <svg class="social-list__icon--footer" width="20" height="20">
-                  <use
-                    href="./images/icons/icons-sprite.svg#footer-social-instagram"
-                  ></use>
+                  <use href="./images/icons/icons-sprite.svg#footer-social-instagram"></use>
                 </svg>
               </a>
             </li>
-
+    
             <li class="social-list__item">
               <a class="social-list__link social-list__link--footer" href="">
                 <svg class="social-list__icon--footer" width="20" height="20">
-                  <use
-                    href="./images/icons/icons-sprite.svg#footer-social-twitter"
-                  ></use>
+                  <use href="./images/icons/icons-sprite.svg#footer-social-twitter"></use>
                 </svg>
               </a>
             </li>
-
+    
             <li class="social-list__item">
               <a class="social-list__link social-list__link--footer" href="">
                 <svg class="social-list__icon--footer" width="20" height="20">
-                  <use
-                    href="./images/icons/icons-sprite.svg#footer-social-facebook"
-                  ></use>
+                  <use href="./images/icons/icons-sprite.svg#footer-social-facebook"></use>
                 </svg>
               </a>
             </li>
-
+    
             <li class="social-list__item">
               <a class="social-list__link social-list__link--footer" href="">
                 <svg class="social-list__icon--footer" width="20" height="20">
-                  <use
-                    href="./images/icons/icons-sprite.svg#footer-social-linkedin"
-                  ></use>
+                  <use href="./images/icons/icons-sprite.svg#footer-social-linkedin"></use>
                 </svg>
               </a>
             </li>
           </ul>
         </div>
-
+    
         <form name="form_subscribe" class="footer-block form-subscribe">
-          <label for="email-subscribe" class="footer-block__label"
-            >Подпишитесь на рассылку</label
-          >
-
-          <input
-            id="email-subscribe"
-            class="form-subscribe__input"
-            type="email"
-            name="email_subscribe"
-            placeholder="E-mail"
-          />
+          <label for="email-subscribe" class="footer-block__label">Подпишитесь на рассылку</label>
+    
+          <input id="email-subscribe" class="form-subscribe__input" type="email" name="email_subscribe"
+            placeholder="E-mail">
           <button class="btn btn--subscribe" type="submit">
             Подписаться
             <svg class="btn--subscribe__icon" width="24" height="24">

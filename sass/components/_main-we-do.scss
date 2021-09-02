@@ -1,5 +1,11 @@
 /* section WE DO  */
 
+.section--wedo {
+  @media screen and (max-width: calc(#{$desktop} - 1px)) {
+    display: none;
+  }
+}
+
 .wedo-item {
   position: relative;
 

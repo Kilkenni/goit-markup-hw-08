@@ -2,25 +2,73 @@
 
 .clients-list {
   display: flex;
-  justify-content: left;
-  margin-right: calc(-1 * var(--projects-item-space));
+  justify-content: center;
+  flex-wrap: wrap;
+  @include centered-block;
+  //margin-right: calc(-1 * var(--projects-item-space));
+  margin-bottom: calc(-1 * var(--projects-item-space));
+
+  @media screen and (max-width: calc(#{$tablet} - 1px)) {
+    max-width: $mobile;
+  }
+
+  @media screen and (min-width: #{$tablet}) and (max-width: calc(#{$desktop} - 1px)) {
+    max-width: $tablet;
+  }
 }
 
 .client {
-  flex-basis: calc(100% / 6 - var(--projects-item-space));
-  margin-right: var(--projects-item-space);
+  margin-bottom: var(--projects-item-space);
+
+  @media screen and (max-width: calc(#{$tablet} - 1px)) {
+    //   margin-right: calc(-1 * var(--projects-item-space));
+    width: 210px;
+
+    &:not(:nth-child(2n)) {
+      margin-right: var(--projects-item-space);
+    }
+  }
+
+  @media screen and (min-width: #{$tablet}) {
+    width: 226px;
+
+    &:not(:nth-child(3n)) {
+      margin-right: var(--projects-item-space);
+    }
+  }
+
+  @media screen and (min-width: #{$desktop}) {
+    flex-basis: calc(100% / 6 - var(--projects-item-space));
+
+    &:not(:nth-child(6n)) {
+      margin-right: var(--projects-item-space);
+    }
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
 }
 
 .client__link {
   display: block;
-  width: 170px;
+  width: 100%;
   height: 92px;
-  padding: 16px 32px;
+  padding: 16px 52px;
 
   border-width: 1px;
   border-style: solid;
   border-color: var(--fill-icon-inactive);
   border-radius: 4px;
+
+  @media screen and (min-width: #{$tablet}) {
+    padding: 16px 60px;
+  }
+
+  @media screen and (min-width: #{$desktop}) {
+    width: 170px;
+    padding: 16px 32px;
+  }
 
   @include transition-generic("border-color");
 
@@ -32,7 +80,6 @@
 
 .client__logo {
   fill: var(--fill-icon-inactive);
-
   @include transition-generic("fill");
 
   .client__link:hover > &,
