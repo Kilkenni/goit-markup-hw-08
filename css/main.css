@@ -272,20 +272,51 @@ p {
 
 /* HEADER */
 .header {
-  min-height: 80px;
-  padding-top: 25px;
-  padding-bottom: 25px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   border-bottom: 1px solid var(--border);
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    min-height: 80px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .header {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+}
+
+.container--header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .logo {
   font-family: var(--font-logo), sans-serif;
   font-style: normal;
   font-weight: 700;
-  font-size: 26px;
+  font-size: 24px;
   line-height: 1.17;
   letter-spacing: 0.03em;
   text-decoration: none;
+}
+
+@media screen and (min-width: 1200px) {
+  .logo {
+    font-size: 26px;
+    line-height: 1.1923;
+  }
 }
 
 .logo__left {
@@ -298,34 +329,68 @@ p {
 
 .logo--header {
   /* modifier for logo in header*/
-  margin-right: 95px;
+  margin-right: 88px;
 }
 
-.header__nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+@media screen and (min-width: 1200px) {
+  .logo--header {
+    margin-right: 95px;
+  }
 }
 
-.nav-panel__link,
-.header-contacts__link {
+@media screen and (min-width: 768px) {
+  .header__nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .nav-panel__item {
+    display: inline;
+  }
+  .nav-panel__item:not(:last-child) {
+    margin-right: 50px;
+  }
+}
+
+.nav-panel__link {
   font-weight: 500;
   font-size: 14px;
   line-height: 1.17;
   letter-spacing: 0.02em;
 }
 
-.nav-panel__item,
-.header-contacts__item {
-  display: inline;
+.header-contacts__link {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.02em;
 }
 
-.nav-panel__item:not(:last-child),
-.header-contacts__item:not(:last-child) {
-  margin-right: 50px;
+@media screen and (min-width: 1200px) {
+  .header-contacts__link {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: calc(1200px - 1px)) {
+  .header-contacts__item:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .header-contacts__item {
+    display: inline;
+  }
+  .header-contacts__item:not(:last-child) {
+    margin-right: 30px;
+  }
 }
 
 .nav-panel__link {
@@ -353,9 +418,18 @@ p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+@media screen and (min-width: 768px) and (max-width: calc(1200px - 1px)) {
+  .header-contacts {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 .header-contacts__link {
@@ -370,13 +444,27 @@ p {
 
 .header-contacts__icon {
   fill: var(--text-color-primary);
-  margin-right: 10px;
+  margin-right: 8px;
   -webkit-transition-property: fill;
   transition-property: fill;
   -webkit-transition-timing-function: var(--anim-curve);
           transition-timing-function: var(--anim-curve);
   -webkit-transition-duration: var(--anim-time);
           transition-duration: var(--anim-time);
+}
+
+@media screen and (min-width: 1200px) {
+  .header-contacts__item:first-child .header-contacts__icon {
+    width: 16px;
+    height: 12px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .header-contacts__item:last-child .header-contacts__icon {
+    width: 10px;
+    height: 16px;
+  }
 }
 
 .header-contacts__link:hover .header-contacts__icon,
