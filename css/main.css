@@ -736,6 +736,8 @@ p {
   width: 100%;
   height: 100%;
   z-index: 10;
+  overflow-y: scroll;
+  padding: 93px 15px;
   background-color: var(--bkg-color-backdrop);
   -webkit-transition-property: opacity;
   transition-property: opacity;
@@ -746,12 +748,10 @@ p {
 }
 
 .modal-window {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%) scale(1, 1);
-          transform: translate(-50%, -50%) scale(1, 1);
-  width: 528px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: calc(480px - var(--projects-item-space));
   /* height: 581px; is now adjusted automatically, should be 581px by default */
   padding: 40px;
   border-radius: 4px;
@@ -770,9 +770,27 @@ p {
           transition-delay: var(--anim-time);
 }
 
+@media screen and (min-width: 1200px) {
+  .modal-window {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%) scale(1, 1);
+            transform: translate(-50%, -50%) scale(1, 1);
+    width: 528px;
+  }
+}
+
 .is-hidden .modal-window {
-  -webkit-transform: translate(-50%, -50%) scale(1, 0.05);
-          transform: translate(-50%, -50%) scale(1, 0.05);
+  -webkit-transform: scale(1, 0.05);
+          transform: scale(1, 0.05);
+}
+
+@media screen and (min-width: 1200px) {
+  .is-hidden .modal-window {
+    -webkit-transform: translate(-50%, -50%) scale(1, 0.05);
+            transform: translate(-50%, -50%) scale(1, 0.05);
+  }
 }
 
 .btn--close-modal {
@@ -810,14 +828,24 @@ p {
           transition-delay: calc(var(--anim-time) * 2);
 }
 
+.is-overflow-hidden {
+  overflow: hidden;
+}
+
 .modal-window__header {
   color: var(--text-color-secondary);
   font-weight: 700;
   font-size: 20px;
-  line-height: 1.15;
+  line-height: 1.5;
   text-align: center;
   letter-spacing: 0.03em;
   margin-bottom: 12px;
+}
+
+@media screen and (min-width: 1200px) {
+  .modal-window__header {
+    line-height: 1.15;
+  }
 }
 
 .modal-form {
@@ -951,12 +979,19 @@ p {
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  margin-left: 12px;
-  margin-right: 12px;
   font-weight: 400;
-  font-size: 14px;
-  line-height: 1.71;
+  font-size: 12px;
+  line-height: 1.1667;
   letter-spacing: 0.03em;
+}
+
+@media screen and (min-width: 1200px) {
+  .modal-form__terms {
+    margin-left: 12px;
+    margin-right: 12px;
+    font-size: 14px;
+    line-height: 1.71;
+  }
 }
 
 .modal-form__chk-accept {

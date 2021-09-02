@@ -8,6 +8,8 @@
   width: 100%;
   height: 100%;
   z-index: 10;
+  overflow-y: scroll;
+  padding: 93px 15px;
 
   background-color: var(--bkg-color-backdrop);
 
@@ -19,12 +21,10 @@
 }
 
 .modal-window {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(1, 1);
+  position: relative;
+  @include centered-block;
 
-  width: 528px;
+  width: calc(#{$mobile} - var(--projects-item-space));
   /* height: 581px; is now adjusted automatically, should be 581px by default */
   padding: 40px;
 
@@ -40,8 +40,20 @@
   transition-duration: calc(var(--anim-time) * 2);
   transition-delay: var(--anim-time);
 
+  @media screen and (min-width: #{$desktop}) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1, 1);
+
+    width: 528px;
+  }
+
   .is-hidden & {
-    transform: translate(-50%, -50%) scale(1, 0.05);
+    transform: scale(1, 0.05);
+    @media screen and (min-width: #{$desktop}) {
+      transform: translate(-50%, -50%) scale(1, 0.05);
+    }
   }
 }
 
@@ -79,15 +91,23 @@
   transition-delay: calc(var(--anim-time) * 2);
 }
 
+.is-overflow-hidden {
+  overflow: hidden;
+}
+
 .modal-window__header {
   color: var(--text-color-secondary);
   font-weight: 700;
   font-size: 20px;
-  line-height: 1.15;
+  line-height: 1.5;
   text-align: center;
   letter-spacing: 0.03em;
 
   margin-bottom: 12px;
+
+  @media screen and (min-width: #{$desktop}) {
+    line-height: 1.15;
+  }
 }
 
 .modal-form {
@@ -187,13 +207,18 @@
   align-items: center;
   flex-wrap: wrap;
 
-  margin-left: 12px;
-  margin-right: 12px;
-
   font-weight: 400;
-  font-size: 14px;
-  line-height: 1.71;
+  font-size: 12px;
+  line-height: 1.1667;
   letter-spacing: 0.03em;
+
+  @media screen and (min-width: #{$desktop}) {
+    margin-left: 12px;
+    margin-right: 12px;
+
+    font-size: 14px;
+    line-height: 1.71;
+  }
 }
 
 .modal-form__chk-accept {
