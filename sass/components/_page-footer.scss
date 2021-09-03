@@ -8,7 +8,7 @@
   padding-bottom: 60px;
   /* padding-left: 215px; */
 
-  min-width: $mobile;
+  //min-width: $mobile;
 }
 
 .container--footer {
@@ -20,7 +20,7 @@
     padding-right: 0;
   }
   @media screen and (min-width: #{$desktop}) {
-    justify-content: left;
+    //justify-content: space-between;
     align-items: flex-start;
   }
 }
@@ -74,13 +74,13 @@
     margin-right: auto;
   }
 
-  &--corp {
-    @media screen and (min-width: #{$desktop}) {
-      margin-right: 70px;
-    }
-  }
   @media screen and (min-width: #{$desktop}) {
     padding-top: 15px;
+
+    &--corp {
+      margin-right: 70px;
+      padding-top: 0px;
+    }
 
     &--social {
       margin-right: 95px;
@@ -98,11 +98,6 @@
   text-transform: uppercase;
   color: var(--text-color-other-inv);
   margin-bottom: 20px;
-
-  //@media screen and (max-width: calc(#{$desktop} - 1px)) {
-  // @include centered-text;
-  // text-align: center;
-  //}
 }
 
 .social-list__icon--footer {
@@ -116,8 +111,8 @@
 
 .form-subscribe {
   @media screen and (min-width: #{$tablet}) and (max-width: calc(#{$desktop} - 1px)) {
+    flex-basis: 100%;
   }
-  flex-basis: 100%;
 }
 
 .form-subscribe__input {
@@ -137,11 +132,10 @@
     display: block;
     @include centered-block;
     margin-bottom: 20px;
-    max-width: 450px;
+    max-width: calc(#{$mobile} - var(--projects-item-space));
   }
   @media screen and (min-width: #{$desktop}) {
     margin-right: 12px;
-
     width: 358px;
   }
 

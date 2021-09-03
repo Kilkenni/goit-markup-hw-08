@@ -1,13 +1,16 @@
 /* HEADER */
 
 .header {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  min-height: 60px;
+  padding-top: 16px;
+  padding-bottom: 16px;
 
   border-bottom: 1px solid var(--border);
 
   @media screen and (min-width: #{$tablet}) {
     min-height: 80px;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 
   @media screen and (min-width: #{$desktop}) {
@@ -17,9 +20,17 @@
 }
 
 .container--header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  position: relative;
+  @media screen and (min-width: #{$tablet}) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  // @media screen and (max-width: calc(#{$tablet} - 1px)) {
+  //   display: flex;
+  //   flex-direction: column;
+  //   align-items: flex-start;
+  // }
 }
 
 .logo {
@@ -60,7 +71,30 @@
   }
 }
 
+.nav-panel {
+  @media screen and (max-width: calc(#{$tablet} - 1px)) {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    padding-top: calc(48px - 16px);
+    padding-left: 40px;
+    display: none;
+    height: calc(100vh - 16px);
+    width: 100vw;
+    background-color: var(--bkg-color-primary);
+    &.is-open {
+      display: block;
+    }
+  }
+}
+
 .nav-panel__item {
+  @media screen and (max-width: calc(#{$tablet} - 1px)) {
+    &:not(:last-child) {
+      margin-bottom: 32px;
+    }
+  }
+
   @media screen and (min-width: #{$tablet}) {
     display: inline;
 
@@ -72,22 +106,84 @@
 
 .nav-panel__link {
   font-weight: 500;
-  font-size: 14px;
-  line-height: 1.17;
+  font-size: 40px;
+  line-height: 1.175;
   letter-spacing: 0.02em;
+  color: var(--text-color-secondary);
+
+  &--active {
+    color: var(--accent-color);
+  }
+
+  @media screen and (min-width: #{$tablet}) {
+    font-size: 14px;
+    line-height: 1.17;
+
+    &--active {
+      position: relative;
+
+      &:after {
+        content: "";
+
+        position: absolute;
+        left: 0;
+        top: calc(100% + 28px);
+
+        display: block;
+        width: 100%;
+        height: 4px;
+        border-radius: 2px;
+        background-color: var(--accent-color);
+      }
+    }
+  }
 }
 
-.header-contacts__link {
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.17;
-  letter-spacing: 0.02em;
-  @media screen and (min-width: #{$desktop}) {
-    font-size: 14px;
+.header-contacts {
+  display: none;
+
+  @media screen and (max-width: calc(#{$tablet} - 1px)) {
+    position: absolute;
+    //bottom: 0;
+    left: 0;
+    padding-left: 40px;
+    &.is-open {
+      display: flex;
+    }
+  }
+
+  @media screen and (max-width: calc(#{$tablet} - 1px)) {
+    flex-direction: column-reverse;
+    //row-gap: 32px; //not supported on browsers prior to 2020
+    //margin-bottom: 64px;
+  }
+
+  @media screen and (min-width: #{$tablet}) {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  @media screen and (min-width: #{$tablet}) and (max-width: calc(#{$desktop} - 1px)) {
+    flex-direction: column;
   }
 }
 
 .header-contacts__item {
+  @media screen and (max-width: calc(#{$tablet} - 1px)) {
+    &:nth-last-child(2) {
+      margin-bottom: 64px;
+    }
+    &:last-child {
+      margin-bottom: 32px;
+    }
+  }
+
+  @media screen and (min-width: #{$tablet}) {
+    &:nth-child(1) {
+      display: none;
+    }
+  }
+
   @media screen and (min-width: #{$tablet}) and (max-width: calc(#{$desktop} - 1px)) {
     &:not(:last-child) {
       margin-bottom: 10px;
@@ -103,47 +199,38 @@
   }
 }
 
-.nav-panel__link {
-  color: var(--text-color-secondary);
+.header-contacts__link {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.17;
+  letter-spacing: 0.02em;
+  color: var(--text-color-primary);
 
-  &--active {
-    position: relative;
-    color: var(--accent-color);
-
-    &:after {
-      content: "";
-
-      position: absolute;
-      left: 0;
-      top: calc(100% + 28px);
-
-      display: block;
-      width: 100%;
-      height: 4px;
-      border-radius: 2px;
-      background-color: var(--accent-color);
+  @media screen and (max-width: calc(#{$tablet} - 1px)) {
+    .header-contacts__item:last-child & {
+      font-size: 34px;
+      line-height: 1.1765;
+      color: var(--accent-color);
     }
   }
-}
 
-.header-contacts {
-  display: flex;
-  align-items: flex-start;
-
-  @media screen and (min-width: #{$tablet}) and (max-width: calc(#{$desktop} - 1px)) {
-    flex-direction: column;
+  @media screen and (min-width: #{$tablet}) {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
   }
-}
-
-.header-contacts__link {
-  color: var(--text-color-primary);
-  display: flex;
-  align-items: center;
+  @media screen and (min-width: #{$desktop}) {
+    font-size: 14px;
+  }
 }
 
 .header-contacts__icon {
   fill: var(--text-color-primary);
   margin-right: 8px;
+
+  @media screen and (max-width: calc(#{$tablet} - 1px)) {
+    display: none;
+  }
 
   .header-contacts__item:first-child & {
     @media screen and (min-width: #{$desktop}) {
@@ -163,5 +250,40 @@
   .header-contacts__link:hover &,
   .header-contacts__link:focus & {
     fill: var(--accent-color);
+  }
+}
+
+.btn--mobile-menu {
+  position: absolute;
+  top: -6px;
+  right: 15px;
+  border-style: none;
+  background-color: transparent;
+  padding: 0;
+
+  @media screen and (min-width: #{$tablet}) {
+    display: none;
+  }
+
+  &__icon {
+    display: block;
+    fill: var(--text-color-other);
+    @include transition-generic("fill");
+  }
+
+  &:hover &__icon,
+  &:focus &__icon {
+    fill: var(--accent-color);
+  }
+
+  &__close {
+    display: none;
+  }
+
+  &.is-open &__close {
+    display: block;
+  }
+  &.is-open &__open {
+    display: none;
   }
 }

@@ -24,7 +24,7 @@
   position: relative;
   @include centered-block;
 
-  width: calc(#{$mobile} - var(--projects-item-space));
+  max-width: calc(#{$mobile} - var(--projects-item-space));
   /* height: 581px; is now adjusted automatically, should be 581px by default */
   padding: 40px;
 
@@ -47,6 +47,7 @@
     transform: translate(-50%, -50%) scale(1, 1);
 
     width: 528px;
+    max-width: 528px;
   }
 
   .is-hidden & {

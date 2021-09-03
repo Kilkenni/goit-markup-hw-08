@@ -15,7 +15,6 @@
   margin-bottom: var(--projects-item-space);
 
   @media screen and (max-width: calc(#{$tablet} - 1px)) {
-    width: calc(#{$mobile} - var(--projects-item-space));
     @include centered-block;
   }
 
