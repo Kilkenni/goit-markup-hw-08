@@ -1,4 +1,4 @@
-# goit-markup-hw-07
+# goit-markup-hw-08
 
 GoIT Fullstack Homework-08 repository
 
