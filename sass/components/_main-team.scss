@@ -18,14 +18,29 @@
     @include centered-block;
   }
 
-  @media screen and (min-width: #{$tablet}) and (max-width: calc(#{$desktop} - 1px)) {
-    width: calc(#{$tablet} / 2 - var(--projects-item-space));
+  // @media screen and (min-width: #{$tablet}) and (max-width: calc(#{$desktop} - 1px)) {
+  //   width: calc(#{$tablet} / 2 - var(--projects-item-space));
+  // }
+  @media screen and (min-width: #{$tablet}) {
+    flex-basis: calc((100% - var(--projects-item-space)) / 2);
   }
 
   @media screen and (min-width: #{$desktop}) {
-    &:not(:last-child) {
-      margin-right: 30px;
-    }
+    flex-basis: calc((100% - 3 * var(--projects-item-space)) / 4);
+    // &:not(:last-child) {
+    //   margin-right: 30px;
+    // }
+  }
+}
+
+.team-member__thumb {
+  max-height: 460px;
+  width: 100%;
+  @media screen and (min-width: #{$tablet}) {
+    max-height: 374px;
+  }
+  @media screen and (min-width: #{$desktop}) {
+    height: 260px;
   }
 }
 

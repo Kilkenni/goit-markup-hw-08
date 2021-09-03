@@ -6,16 +6,70 @@
       var(--bkg-color-hero-overlay) 100%,
       var(--bkg-color-hero-overlay)
     ),
-    url("../images/decoration/hero-bg.jpg");
+    url("../images/decoration/hero-bg-mobile-480.jpg");
   background-repeat: no-repeat;
   background-position: center;
+  background-size: cover;
 
   padding-top: 118px;
   padding-bottom: 118px;
+  @media screen and (min-device-pixel-ratio: 2),
+    //for retina screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: linear-gradient(
+        to right,
+        var(--bkg-color-hero-overlay) 100%,
+        var(--bkg-color-hero-overlay)
+      ),
+      url("../images/decoration/hero-bg-mobile-960.jpg");
+  }
 
+  @media screen and (min-width: #{$mobile}) and (max-width: calc(#{$desktop} - 1px)) {
+    background-size: contain;
+  }
+
+  @media screen and (min-width: 1600px) {
+    background-size: contain;
+  }
+
+  @media screen and (min-width: #{$tablet}) {
+    background-image: linear-gradient(
+        to right,
+        var(--bkg-color-hero-overlay) 100%,
+        var(--bkg-color-hero-overlay)
+      ),
+      url("../images/decoration/hero-bg-tablet-768.jpg");
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          to right,
+          var(--bkg-color-hero-overlay) 100%,
+          var(--bkg-color-hero-overlay)
+        ),
+        url("../images/decoration/hero-bg-tablet-1536.jpg");
+    }
+  }
   @media screen and (min-width: #{$desktop}) {
     padding-top: 200px;
     padding-bottom: 200px;
+    background-image: linear-gradient(
+        to right,
+        var(--bkg-color-hero-overlay) 100%,
+        var(--bkg-color-hero-overlay)
+      ),
+      url("../images/decoration/hero-bg-desktop-1600.jpg");
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          to right,
+          var(--bkg-color-hero-overlay) 100%,
+          var(--bkg-color-hero-overlay)
+        ),
+        url("../images/decoration/hero-bg-desktop-3200.jpg");
+    }
   }
 }
 
