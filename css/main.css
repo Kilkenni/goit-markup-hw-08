@@ -65,8 +65,8 @@ p {
 
 img {
   display: block;
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -864,6 +864,7 @@ img {
 /* section TEAM  */
 .container-list--team {
   margin-bottom: calc(-1 * var(--projects-item-space));
+  width: 100%;
 }
 
 .team-member {
@@ -890,8 +891,8 @@ img {
 
 @media screen and (min-width: 1200px) {
   .team-member {
-    -ms-flex-preferred-size: calc((100% - 3 * var(--projects-item-space)) / 4);
-        flex-basis: calc((100% - 3 * var(--projects-item-space)) / 4);
+    -ms-flex-preferred-size: calc((100% - 4 * var(--projects-item-space)) / 4);
+        flex-basis: calc((100% - 4 * var(--projects-item-space)) / 4);
   }
 }
 
@@ -1455,13 +1456,17 @@ img {
 .project__thumbnail {
   position: relative;
   overflow: hidden;
+  width: 100%;
+}
+
+@media screen and (min-width: 480px) {
+  .project__thumbnail {
+    height: 294px;
+  }
 }
 
 .project__image {
   /* width: 370px; */
-  max-width: 100%;
-  height: auto;
-  display: block;
 }
 
 .thumbnail-overlay {
