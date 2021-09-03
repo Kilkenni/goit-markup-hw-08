@@ -350,6 +350,7 @@ p {
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 100%;
+  z-index: 5;
   background-color: var(--bkg-color-primary);
 }
 
@@ -613,6 +614,7 @@ p {
   position: absolute;
   top: -6px;
   right: 15px;
+  z-index: 5;
   border-style: none;
   background-color: transparent;
   padding: 0;
