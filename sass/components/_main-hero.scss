@@ -24,15 +24,11 @@
       url("../images/decoration/hero-bg-mobile-960.jpg");
   }
 
-  @media screen and (min-width: #{$mobile}) and (max-width: calc(#{$desktop} - 1px)) {
-    background-size: contain;
-  }
-
   @media screen and (min-width: 1600px) {
     background-size: contain;
-  }
+  } //max background size
 
-  @media screen and (min-width: #{$tablet}) {
+  @media screen and (min-width: calc(#{$mobile} + 1px)) {
     background-image: linear-gradient(
         to right,
         var(--bkg-color-hero-overlay) 100%,
@@ -51,7 +47,7 @@
         url("../images/decoration/hero-bg-tablet-1536.jpg");
     }
   }
-  @media screen and (min-width: #{$desktop}) {
+  @media screen and (min-width: calc(#{$tablet} + 1px)) {
     padding-top: 200px;
     padding-bottom: 200px;
     background-image: linear-gradient(
