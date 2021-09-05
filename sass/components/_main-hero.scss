@@ -48,8 +48,6 @@
     }
   }
   @media screen and (min-width: calc(#{$tablet} + 1px)) {
-    padding-top: 200px;
-    padding-bottom: 200px;
     background-image: linear-gradient(
         to right,
         var(--bkg-color-hero-overlay) 100%,
@@ -66,6 +64,10 @@
         ),
         url("../images/decoration/hero-bg-desktop-3200.jpg");
     }
+  }
+  @media screen and (min-width: #{$desktop}) {
+    padding-top: 200px;
+    padding-bottom: 200px;
   }
 }
 

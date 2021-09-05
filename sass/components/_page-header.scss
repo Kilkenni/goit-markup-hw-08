@@ -63,13 +63,14 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  z-index: 20;
+  z-index: 10;
   background-color: var(--bkg-color-primary);
 
   @media screen and (max-width: calc(#{$tablet} - 1px)) {
     position: absolute;
     top: calc(-1 * 16px);
-    left: 0;
+    left: calc(-0.5 * (100vw - #{$mobile}));
+    width: 100vw;
     padding: 48px 40px;
 
     &:not(.is-open) {
@@ -288,7 +289,7 @@
   position: absolute;
   top: -6px;
   right: 15px;
-  z-index: 20;
+  z-index: 10;
   border-style: none;
   background-color: transparent;
   padding: 0;
