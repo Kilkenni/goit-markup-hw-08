@@ -69,9 +69,16 @@
   @media screen and (max-width: calc(#{$tablet} - 1px)) {
     position: absolute;
     top: calc(-1 * 16px);
-    left: calc(-0.5 * (100vw - #{$mobile}));
+    left: 0;
     width: 100vw;
     padding: 48px 40px;
+
+    @media screen and (max-width: calc(#{$mobile} - 1px)) {
+      left: 0;
+    }
+    @media screen and (min-width: #{$mobile}) {
+      left: calc(-0.5 * (100vw - #{$mobile}));
+    }
 
     &:not(.is-open) {
       display: none;

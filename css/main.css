@@ -366,10 +366,25 @@ img {
   .container--main-menu {
     position: absolute;
     top: calc(-1 * 16px);
-    left: calc(-0.5 * (100vw - 480px));
+    left: 0;
     width: 100vw;
     padding: 48px 40px;
   }
+}
+
+@media screen and (max-width: calc(768px - 1px)) and (max-width: calc(480px - 1px)) {
+  .container--main-menu {
+    left: 0;
+  }
+}
+
+@media screen and (max-width: calc(768px - 1px)) and (min-width: 480px) {
+  .container--main-menu {
+    left: calc(-0.5 * (100vw - 480px));
+  }
+}
+
+@media screen and (max-width: calc(768px - 1px)) {
   .container--main-menu:not(.is-open) {
     display: none;
   }
